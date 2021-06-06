@@ -3,6 +3,7 @@ Repositorio principal del proyecto realizado en la asignatura IS801-IngenieriaSo
 
 Tecnologias implementadas:
 ---
-* An
+* Angular
 * Android
 * Express
+* MySQL
