@@ -1,0 +1,43 @@
+.parallax{
+    position: relative;
+    width: 100%;
+    height: 290px;
+    background-image: url(../../../assets/landingPage/analitica.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax2{
+    position: relative;
+    width: 100%;
+    height: 290px;
+    background-image: url(../../../assets/landingPage/botes-hombres.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax3{
+    position: relative;
+    width: 100%;
+    height: 290px;
+    background-image: url(../../../assets/landingPage/ninp.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.waveb{
+    width: 100%;
+    position: absolute;
+    bottom: -1px;
+}
+.wavet{
+    width: 100%;
+    position: absolute;
+    top: -1px;
+}
