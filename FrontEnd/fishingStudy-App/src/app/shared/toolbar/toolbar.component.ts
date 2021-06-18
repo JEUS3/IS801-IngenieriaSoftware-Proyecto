@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ThemeService } from '../../services/theme.service';
 import { Option } from '../../interfaces/option.model';
 import { Observable } from 'rxjs';
+import { HostListener } from '@angular/core';
+
 
 @Component({
   selector: 'app-toolbar',
@@ -9,8 +11,24 @@ import { Observable } from 'rxjs';
   styleUrls: ['./toolbar.component.css']
 })
 export class ToolbarComponent implements OnInit {
+
+  // Declare height and width variables
+  scrHeight:number=0;
+  scrWidth:number=0;
+  
   options: Option[] =[];
-  constructor( private readonly themeService:ThemeService) { }
+  
+  @HostListener('window:resize', ['$event'])
+  getScreenSize(event?:any) {
+    this.scrHeight = window.innerHeight;
+    this.scrWidth = window.innerWidth;
+    console.log(this.scrHeight, this.scrWidth);
+}
+
+  constructor( private readonly themeService:ThemeService) { 
+    this.getScreenSize();
+
+  }
 
   ngOnInit(): void {
     this.themeService.getThemeOptions()
@@ -22,5 +40,7 @@ export class ToolbarComponent implements OnInit {
   changeTheme(theme:string){
     this.themeService.setTheme(theme);
   }
+
+
 
 }

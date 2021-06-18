@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import {NgsRevealModule} from 'ngx-scrollreveal';
+
 import { LandingPageRoutingModule } from './landing-page-routing.module';
 import { LandingComponent } from './landing/landing.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -30,7 +32,8 @@ import { SectionContactUsComponent } from './components/section-contact-us/secti
     CommonModule,
     LandingPageRoutingModule,
     SharedModule,
-    MaterialModule
+    MaterialModule,
+    NgsRevealModule
   ]
 })
 export class LandingPageModule { }

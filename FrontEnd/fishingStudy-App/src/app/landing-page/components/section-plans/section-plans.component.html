@@ -1,5 +1,6 @@
-<div class="mx-5 py-5">
-  <div class="row pt-2">
+<div class="mx-5 py-4">
+  <div  class="row pt-2"
+        [ngsReveal]="{reset:true,origin:'left', distance:'80px', delay:100, duration:1000}" >
     <h1 class="mb-0">Planes de pago</h1>
     <h1 class="mb-0">Bastante accesibles</h1>
     <svg height="10" width="300">
@@ -7,8 +8,8 @@
     </svg>
     <p>Nos adaptamos a las necesidades de su organizacion y su presupuesto</p>
   </div>
-  <div class="row pt-2 pb-2">
-      <div class="col-12 col-sm-4 mb-4">
+  <div class="row pt-2 pb-2" [ngsRevealSet]="{ reset:true, delay:100}" [ngsInterval]="200" [ngsSelector]="'.example-card'">
+      <div class="col-12 col-md-6 col-lg-4 mb-4">
           <mat-card class="example-card">
               <mat-card-header>
                 <div mat-card-avatar class="example-header-image"></div>
@@ -49,8 +50,8 @@
               </mat-card-actions>
             </mat-card>
       </div>
-      <div class="col-12 col-sm-4 mb-4">
-          <mat-card class="example-card" style="background-color: rgba(85, 108, 242, 0.27);">
+      <div class="col-12 col-md-6 col-lg-4 mb-4">
+          <mat-card class="example-card" style="background-color: rgba(85, 108, 242, 0.11);">
             <mat-card-header>
               <div mat-card-avatar class="example-header-image"></div>
               <mat-card-title>Plan Premuim</mat-card-title>
@@ -90,7 +91,7 @@
             </mat-card-actions>
           </mat-card>
       </div>
-      <div class="col-12 col-sm-4 mb-4">
+      <div class="col-12 col-md-6 col-lg-4 mb-4">
           <mat-card class="example-card">
               <mat-card-header>
                 <div mat-card-avatar class="example-header-image"></div>
