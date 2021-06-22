@@ -6,9 +6,16 @@ const cors = require("cors");                           //
 const { dbConnection } =require('./database/config')    //Conexion hacia la base de datos
 
 // Paso 2
-// Crear el servidor/aplicacion de express y conectarse con la base de datos
+// Crear el servidor/aplicacion de express
 const app = express();
-app.use(cors());
+
+//Paso 3
+//Configuraciones
+app.use( cors() );          //Esta es una configuracion por defecto del CORS, protege un poco el BackEnd
+app.use( express.json() );  //Transformamos los bodys en json, es una parseo del body
+
+//Paso 4
+//Conexion a la BD.
 dbConnection();
 
 // app.get("/", (req,res)=>{
@@ -20,6 +27,7 @@ dbConnection();
 
 // Definicion de rutas y controladores
 app.use("/api/usuarios", require("./routes/usuarios"));
+app.use("/api/login", require("./routes/login"));
 
 // Paso final
 // Levantar el servico

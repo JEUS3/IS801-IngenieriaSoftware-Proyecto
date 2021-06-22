@@ -4,9 +4,9 @@ const { Schema, model } = require("mongoose");
 
 // Esto es un "tabla de usuario"
 const UsuarioSchema = Schema({
-    nombre:{
+    name:{
         type    : String,
-        require : true
+        required : true
     },
     email:{
         type    : String,
@@ -22,13 +22,19 @@ const UsuarioSchema = Schema({
     },
     role:{
         type    : String,
-        require : true,
+        required : true,
         default : "USER_ROLE"
     },
     google:{
         type    : Boolean,
         default : false
-    },
+    }
+});
+
+UsuarioSchema.method("toJSON", function(){
+    const {__v, _id, ...object} = this.toObject();
+    object.uid = _id;
+    return object;
 });
 
 // Implementacion del modelo
