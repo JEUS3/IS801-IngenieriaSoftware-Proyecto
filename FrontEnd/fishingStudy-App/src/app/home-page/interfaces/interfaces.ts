@@ -1,8 +1,8 @@
 export interface Usuario {
-    uid  ?:  string;
-    name ?:  string;
-    email?:  string;
-    role ?:  string;
+    uid  :  string;
+    name :  string;
+    email:  string;
+    role :  string;
 }
 
 export interface LoginResponse {
@@ -19,4 +19,9 @@ export interface Data {
     email:    string;
     password: string;
     uid:      string;
+}
+
+export interface OptionSetting{
+    name:string,
+    url :string
 }

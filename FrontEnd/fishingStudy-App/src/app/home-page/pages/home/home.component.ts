@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OptionSetting } from '../../interfaces/interfaces';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   panelOpenState = false;
-  typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
+  typesOfShoes: string[] = ['Perfil y cuenta', 'Gestion de usuarios', 'Loafers', 'Moccasins', 'Cerrar sesion'];
+  optionSetting:OptionSetting[] = [
+    {name: "Cuenta", url:"opening"},
+    {name: "Gestion de usuarios", url:"setting"},
+    {name: "Cerrar sesion", url:"/auth/login"},
+  ];
   constructor() { }
 
   ngOnInit(): void {

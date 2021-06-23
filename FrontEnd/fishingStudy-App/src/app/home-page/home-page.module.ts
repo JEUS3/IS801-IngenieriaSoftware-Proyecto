@@ -9,6 +9,7 @@ import { MapComponent } from './pages/map/map.component';
 import { ChartComponent } from './pages/chart/chart.component';
 import { OpeningComponent } from './pages/opening/opening.component';
 import { MaterialModule } from '../material/material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { MaterialModule } from '../material/material/material.module';
     CommonModule,
     HomePageRoutingModule,
     SharedModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ]
 })
 export class HomePageModule { }

@@ -5,6 +5,8 @@ import { catchError, map, tap } from "rxjs/operators";
 import { of, Observable } from 'rxjs';
 
 import { Usuario, LoginResponse } from '../../home-page/interfaces/interfaces';
+import { FormGroup } from '@angular/forms';
+import { AuthResponse } from '../interfaces/interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -30,10 +32,10 @@ export class AuthService {
             localStorage.setItem("token",resp.token!)
             console.log(resp.data?.uid!)
             this._user = {
-              uid   :resp.data?.uid,
-              name  :resp.data?.name,
-              email :resp.data?.email,
-              role  :resp.data?.role
+              uid   :resp.data?.uid!,
+              name  :resp.data?.name!,
+              email :resp.data?.email!,
+              role  :resp.data?.role!
             }
           }
         }),
@@ -45,5 +47,14 @@ export class AuthService {
           return of(err.error?.msg||"Error en la peticion")
         })
       )
+  }
+
+  register( form:FormGroup ){
+    const url = `${this._baseUrl}/usuarios`
+    return this.http.post<AuthResponse>(url, form.value)
+      .pipe(
+        map(resp => resp.ok),
+        catchError( err => of(err.error.msg))
+      ); 
   }
 }
