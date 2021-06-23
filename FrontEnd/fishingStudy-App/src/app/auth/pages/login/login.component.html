@@ -1,0 +1,58 @@
+<div ngsReveal class="login d-flex justify-content-center align-items-center">
+    <form   [formGroup]="miFormulario"
+            autocomplete="off"
+            (ngSubmit)="login()"
+    >
+        <div style="height: 420px; width: 320px; background-color: rgba(65, 132, 177, 0.42); border-radius: 10px;" >
+            <!-- Logo y nombre  -->
+            <div class="row">
+                <div class="col mt-5 mb-4 mx-4">
+                    <a routerLink="/landing-page">
+                        <img class="me-2" style="width: 50px;" src="../../../assets/toolbar/pescado.png" alt="">
+                    </a>
+                    <span style="font-size: 22px;">SerFish</span>
+                </div>
+            </div>
+            <!-- Inputs -->
+            <div class="row mx-3">
+                <div class="col-12 mb-3">
+                    <mat-form-field  class="w-100" appearance="fill" color="accent">
+                        <mat-label>Nombre de usuario o Email</mat-label>
+                        <input matInput
+                               formControlName="email">
+                        <mat-icon class="me-2" matPrefix>person</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="col-12 mb-3">
+                    <mat-form-field class="w-100" appearance="fill" color="accent">
+                        <mat-label>Contraseña</mat-label>
+                        <input  [type]="hide ? 'password' : 'text'"
+                                type="password"
+                                matInput
+                                formControlName="password">
+                        <!-- <mat-icon matSuffix>lock</mat-icon> -->
+                        <mat-icon class="me-2" matPrefix>lock</mat-icon>
+                        <button style="opacity: 0.5;" type="button" mat-icon-button matSuffix (click)="hide = !hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+                <div class="col-12 text-center">
+                    <button class="boton"
+                            type="submit"
+                            mat-stroked-button color="accent">
+                        Ingresar
+                    </button>
+                </div>
+                <div class="col-12 mt-4 text-center">
+                    <a style="text-decoration: none; pointer-events: none; color: #fff;" href="#">¿Olvidó la contraseña?</a>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+<div>
+    <span> <strong>Valido:</strong> El formulario cumple todas las condiciones</span>
+    <pre>{{miFormulario.valid}}</pre>
+</div>

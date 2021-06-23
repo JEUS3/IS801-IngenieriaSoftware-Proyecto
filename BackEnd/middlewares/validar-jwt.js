@@ -11,6 +11,7 @@ const validarJWT = (req=request, resp=response, next)=>{
         });
     }
     try {
+        //Verificamos token y extraemos el payload
         const {uid} = jwt.verify(token, process.env.SECRET_JWT_SEED);
         req.uid = uid;
         next();

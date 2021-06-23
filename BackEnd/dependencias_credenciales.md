@@ -10,6 +10,15 @@ npm i express
 npm i express-validator
 ```
 
+* **express-fileupload**: Paquete para general tokens
+```
+npm i express-fileupload
+```
+* **uuid**: Paquete para general tokens //genera id unicos (es muy utilizado.)
+```
+npm i uuid
+```
+
 * **mongoose**: URM interactuar con mongo de una forma mas sencilla
 ```
 npm i mongoose

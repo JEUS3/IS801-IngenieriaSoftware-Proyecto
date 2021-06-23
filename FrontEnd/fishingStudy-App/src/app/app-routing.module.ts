@@ -9,6 +9,11 @@ const routes: Routes = [
     path: "auth", 
     loadChildren: () => import("./auth/auth.module").then( module => module.AuthModule)
   },
+  {
+    path:"home-page",
+    loadChildren: () => import("./home-page/home-page.module").then( module => module.HomePageModule)
+
+  },
   { path: "", redirectTo: "landing-page", pathMatch: "full"},
   { path: "**", component: Page404Component}
 ];

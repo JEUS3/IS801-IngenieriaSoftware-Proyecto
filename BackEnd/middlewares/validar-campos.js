@@ -7,7 +7,8 @@ const validarCampos = (req=request, res=response, next)=>{
     if(!errores.isEmpty()){
         return res.status(400).json({
             ok:false,
-            errores:errores.mapped()
+            errores:errores.mapped(),
+            msg:"Oops!! Uno de los campos no fue ingresado correctamente."
         });
     }
     next();
