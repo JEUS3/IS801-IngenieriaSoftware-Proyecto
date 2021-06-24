@@ -3,6 +3,7 @@ import { ThemeService } from '../../services/theme.service';
 import { Option } from '../../interfaces/option.model';
 import { Observable } from 'rxjs';
 import { HostListener } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -25,7 +26,7 @@ export class ToolbarComponent implements OnInit {
     console.log(this.scrHeight, this.scrWidth);
 }
 
-  constructor( private readonly themeService:ThemeService) { 
+  constructor( private readonly themeService:ThemeService, private route: ActivatedRoute) { 
     this.getScreenSize();
 
   }
@@ -36,6 +37,12 @@ export class ToolbarComponent implements OnInit {
         console.log(resp);
         this.options=resp;
       })
+    this.route.fragment.subscribe(f => {
+      const element = document.querySelector("#" + f)
+      if (element){
+        element.scrollIntoView();
+      }
+    })
   }
   changeTheme(theme:string){
     this.themeService.setTheme(theme);
