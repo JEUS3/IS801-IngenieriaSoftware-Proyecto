@@ -1,5 +1,5 @@
 <!-- position: fixed; -->
-<mat-toolbar style="position: fixed; z-index: 1;">
+<mat-toolbar style="position: absolute; top:0; z-index: 1;">
     <a href="">
       <img class="me-3" style="width: 50px;" src="../../../assets/toolbar/pescado.png" alt="">
     </a>
@@ -8,10 +8,10 @@
     <span class="example-spacer"></span>
 
     <div *ngIf="scrWidth >= 810">
-      <button class="me-1" mat-button>Contactanos</button>
-      <button class="me-1" mat-button >Acerca de nosotros</button>
-      <button class="me-1" mat-button >Servicio</button>
-      <button class="me-1" mat-button >Planes</button>
+      <button class="me-1" mat-button (click)="smooth('contact')">Contactanos</button>
+      <button class="me-1" mat-button (click)="smooth('about')">Acerca de nosotros</button>
+      <button class="me-1" mat-button (click)="smooth('services')">Servicio</button>
+      <button class="me-1" mat-button (click)="smooth('plans')">Planes</button>
       <button class="me-1" mat-stroked-button color="primary" routerLink="/auth/">Ingresar</button>  
     </div>
     <button mat-icon-button>
@@ -23,7 +23,8 @@
         <mat-icon>menu</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>
+        <button mat-menu-item
+                (click)="smooth('id')">
           <mat-icon>contact_mail</mat-icon>
           <span>Contactanos</span>
         </button>

@@ -41,6 +41,8 @@ export class ToolbarComponent implements OnInit {
     this.themeService.setTheme(theme);
   }
 
-
+  smooth(section:string){
+    document.getElementById(section)?.scrollIntoView({block: "start", behavior: "smooth"});
+  }
 
 }

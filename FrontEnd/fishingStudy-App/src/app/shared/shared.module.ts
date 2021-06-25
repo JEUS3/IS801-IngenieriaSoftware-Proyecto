@@ -4,17 +4,20 @@ import { MaterialModule } from '../material/material/material.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { RouterModule } from '@angular/router';
+import { Page404Component } from './page404/page404.component';
 
 
 
 @NgModule({
   declarations: [
     SidebarComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    Page404Component
   ],
   exports:[
     SidebarComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    Page404Component
   ],
   imports: [
     CommonModule,
