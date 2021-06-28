@@ -1,17 +1,17 @@
 <!-- position: fixed; -->
-<mat-toolbar style="position: fixed; z-index: 1;">
-    <a href="">
-        <img class="me-3" style="width: 50px;" src="../../../assets/toolbar/pescado.png" alt="">
+<mat-toolbar class="toolbar">
+    <a routerLink="/landing-page">
+        <img class="mx-3" style="width: 50px;" src="../../../assets/toolbar/pescado.png" alt="">
     </a>
     <span>SerFish</span>
 
     <span class="example-spacer"></span>
 
     <div *ngIf="scrWidth >= 810">
-        <button class="me-1" mat-button [routerLink]="['/landing-page']" fragment="about">Acerca de nosotros</button>
-        <button class="me-1" mat-button [routerLink]="['/landing-page']" fragment="features">Servicio</button>
-        <button class="me-1" mat-button [routerLink]="['/landing-page']" fragment="pricing">Planes</button>
-        <button class="me-1" mat-button [routerLink]="['/landing-page']" fragment="contact-us">Contactanos</button>
+        <button class="me-1" mat-button (click)="scrollingSmooth('about')">Acerca de nosotros</button>
+        <button class="me-1" mat-button (click)="scrollingSmooth('features')">Servicio</button>
+        <button class="me-1" mat-button (click)="scrollingSmooth('pricing')">Planes</button>
+        <button class="me-1" mat-button (click)="scrollingSmooth('contact-us')">Contactanos</button>
         <button class="me-1" mat-stroked-button color="primary" routerLink="/auth/">Ingresar</button>
     </div>
     <!-- <button mat-icon-button>
@@ -23,19 +23,19 @@
         <mat-icon>menu</mat-icon>
       </button>
         <mat-menu #menu="matMenu">
-            <button mat-menu-item>
+            <button mat-menu-item (click)="scrollingSmooth('contact-us')">
           <mat-icon>contact_mail</mat-icon>
           <span>Contactanos</span>
         </button>
-            <button mat-menu-item>
+            <button mat-menu-item (click)="scrollingSmooth('about')">
           <mat-icon>groups</mat-icon>
           <span>Acerca de nosotros</span>
         </button>
-            <button mat-menu-item>
+            <button mat-menu-item (click)="scrollingSmooth('features')">
           <mat-icon>settings_suggest</mat-icon>
           <span>Servicio</span>
         </button>
-            <button mat-menu-item>
+            <button mat-menu-item (click)="scrollingSmooth('pricing')">
           <mat-icon>workspace_premium</mat-icon>
           <span>Planes</span>
         </button>

@@ -1,4 +1,5 @@
 <div class="header">
+    <app-toolbar></app-toolbar>
     <div class="container h-100">
         <div class="row" style="height: 100%;">
             <div class="col-12  col-lg-6 align-self-center">
@@ -8,7 +9,7 @@
                 </div>
                 <div class="row mt-3" [ngsReveal]="{reset:true,origin:'right', distance:'80px', delay:200, duration:1500}">
                     <div class="col-12  col-sm-6">
-                        <button class="w-100 mt-2" mat-raised-button color="accent" [routerLink]="['/landing-page']" fragment="contact-us">
+                        <button class="w-100 mt-2" mat-raised-button color="accent" (click)="scrollingSmooth('contact-us')">
                             Contáctanos
                         </button>
                     </div>

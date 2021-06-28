@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-header',
@@ -8,13 +8,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.route.fragment.subscribe(f => {
-      const element = document.querySelector("#" + f)
-      if (element) element.scrollIntoView(true)
-    })
-  }
 
+  }
+  scrollingSmooth(seccionId:string){
+    document.getElementById(seccionId)?.scrollIntoView({behavior:"smooth"});
+  }
 }
