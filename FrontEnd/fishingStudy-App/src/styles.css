@@ -5,6 +5,8 @@
 html, body{
     margin: 0px;
     padding: 0px;
+    font-family: var(--font-family);
+    background-color: var(--surface-b);
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
