@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { HostListener } from '@angular/core';
 
 
+
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
@@ -41,8 +42,8 @@ export class ToolbarComponent implements OnInit {
     this.themeService.setTheme(theme);
   }
 
-  smooth(section:string){
-    document.getElementById(section)?.scrollIntoView({block: "start", behavior: "smooth"});
+  scrollingSmooth(seccionId:string){
+    document.getElementById(seccionId)?.scrollIntoView({behavior:"smooth"});
   }
 
 }
