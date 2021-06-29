@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PlansService } from '../../../services/plans.service';
 
 @Component({
   selector: 'app-section-plans',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SectionPlansComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor( private plansService:PlansService) { 
   }
 
+  ngOnInit(): void {
+   
+  }
+  planes = this.plansService.getPlans();
 }
