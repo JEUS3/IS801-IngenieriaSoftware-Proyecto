@@ -1,14 +1,13 @@
 <footer>
-    <div class="container">
+    <div class="container" style="display: grid;">
         <div class="row pt-5 mx-5">
-            <div class="col-4">
+            <div class="col-4" style="width: auto;">
                 <a href="">
                     <img class="me-3" style="width: 50px;" src="../../../assets/toolbar/pescado.png" alt="">
                 </a>
                 <span>SerFish</span>
-                <p class="mt-2" style="margin: 0;">Desarrollando tecnología e </p>
-                <p style="margin: 0;">innovando la investigación</p>
-                <div class="mt-2" style="font-size: 0.6rem;">
+                <p class="mt-2" style="padding: 0%; position: relative;">Desarrollando tecnología e innovando la investigación.</p>
+                <div class="mt-2" style="font-size: 0.6rem; width: fit-content;">
                     <ul id="social">
                         <li>
                             <i class="fab fa-facebook fa-2x"></i>
@@ -25,15 +24,15 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-4 pt-2">
+            <div class="col-4 pt-2" id="contacto" style="width: fit-content;">
                 <h6>Información de contacto</h6>
-                <ul style="list-style: none;">
+                <ul style="list-style: none; padding-left: 0%;">
                     <li> <i class="fas fa-globe-americas me-2 mt-2"></i> Honduras, Tegucigalpa</li>
                     <li> <i class="far fa-envelope  me-2 mt-2"></i> serfish@gmail.com</li>
                     <li> <i class="fas fa-phone-alt me-2 mt-2"></i> +504 33563215</li>
                 </ul>
             </div>
-            <div class="col-4 pt-2">
+            <div class="col-4 pt-2" id="legal" style="width: fit-content;">
                 <h6>Legal</h6>
                 <ul style="list-style:  square;">
                     <li class="me-2 mt-2">Términos del servicio</li>
@@ -45,8 +44,9 @@
         </div>
     </div>
     <div style="width: 100%;
-              position: absolute;
-              bottom: 0; 
+              position: sticky;
+              margin-top: 0%;
+              background-color: #d63384;
               text-align: center;">
         <p style="margin: 0;">Copyright 2021 © SerFish</p>
     </div>
