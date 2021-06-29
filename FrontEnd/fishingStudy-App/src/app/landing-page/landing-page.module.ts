@@ -13,6 +13,7 @@ import { MaterialModule } from '../material/material/material.module';
 import { SectionPlansComponent } from './components/section-plans/section-plans.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SectionContactUsComponent } from './components/section-contact-us/section-contact-us.component';
+import { PrimengModule } from '../primeng/primeng.module';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { SectionContactUsComponent } from './components/section-contact-us/secti
     LandingPageRoutingModule,
     SharedModule,
     MaterialModule,
+    PrimengModule,
     NgsRevealModule
   ]
 })
