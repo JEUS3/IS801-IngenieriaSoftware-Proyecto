@@ -5,14 +5,13 @@
 const { Router } = require("express");
 const { check } = require("express-validator");
 
-const { test, getUser, newUser, updateData, deleteUser, revalidarToken } = require("../controllers/usuarios");
+const { test, getUser, newUser, updateData, deleteUser } = require("../controllers/usuarios");
 const { validarCampos } = require("../middlewares/validar-campos");
 const { validarJWT } = require("../middlewares/validar-jwt");
 const router = Router();
 
 router.get("/test", test);
 router.get("/", validarJWT, getUser);
-router.get("/renew", validarJWT, revalidarToken);
 router.post("/", [
         check("name", "El nombre es obligatorio.").not().isEmpty(),
         check("password", "La contrasaña es obligatorio.").not().isEmpty(),

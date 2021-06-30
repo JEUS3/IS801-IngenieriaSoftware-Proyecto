@@ -127,28 +127,12 @@ const deleteUser = async(req = request, res = response) => {
     }
 };
 
-const revalidarToken = async(req = request, res = response) => {
-
-    //obtener uid
-    const { uid } = req;
-
-    //renovar nuevo JWT
-    const token = await generarJWT(uid);
-
-    return res.status(200).json({
-        ok: true,
-        uid,
-        token
-    });
-};
-
 module.exports = {
     test,
     getUser,
     newUser: newUser,
     updateData,
-    deleteUser,
-    revalidarToken
+    deleteUser
 };
 
 // Nota:
