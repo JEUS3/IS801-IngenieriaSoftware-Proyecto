@@ -19,5 +19,9 @@
         causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
     flex: 1;
 }
-  
-  
+
+.img {
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+}

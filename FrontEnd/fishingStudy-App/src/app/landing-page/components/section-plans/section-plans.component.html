@@ -8,7 +8,7 @@
         <p>Nos adaptamos a las necesidades de su organizacion y su presupuesto</p>
     </div>
     <div class="row pt-2 pb-2" [ngsRevealSet]="{ reset:true, delay:100}" [ngsInterval]="200" [ngsSelector]="'.example-card'">
-        <div *ngFor="let plan of planes" class="col-12 col-md-6 col-lg-4 mb-4">
+        <div *ngFor="let plan of plans" class="col-12 col-md-6 col-lg-4 mb-4">
             <mat-card class="example-card">
                 <mat-card-header>
                     <div mat-card-avatar class="example-header-image"></div>
@@ -24,7 +24,7 @@
                     </p>
                     <ul>
                         <li class="mt-1" style="list-style: none;" *ngFor="let feature of plan.features">
-                            <img class="me-2" style="width: 15px;" src="../../../../assets/landingPage/funciones/checked.png" alt=""> {{feature}}
+                            <img class="me-2 img" src="../../../../assets/landingPage/funciones/checked.png" alt=""> {{feature}}
                         </li>
                     </ul>
                 </mat-card-content>
