@@ -18,6 +18,7 @@ export class OpeningComponent implements OnInit {
   }
 
   logout(){
+    localStorage.removeItem('token');
     this.router.navigateByUrl("/auth/login")
   }
 
