@@ -49,7 +49,7 @@ const revalidarToken = async(req = request, res = response) => {
     //renovar nuevo JWT
     const token = await generarJWT(uid);
 
-    //obtener informacion
+    //obtener información
     const { role, google, name, email } = await Usuario.findById(uid);
 
     return res.status(200).json({
