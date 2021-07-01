@@ -1,0 +1,25 @@
+.col-12.col-sm-6 > img {
+    width: 50px;
+}
+
+.col-12.col-sm-6 > p {
+    text-align: justify;
+}
+
+.img-fluid {
+    width: 480px;
+}
+
+line {
+    stroke:#3f51b5;
+    stroke-width:8
+}
+
+.row {
+    text-align: center;
+}
+
+.mb-0,
+line {
+    text-align: left;
+}
