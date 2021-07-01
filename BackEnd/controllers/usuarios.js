@@ -2,6 +2,7 @@ const { request, response } = require("express");
 const { generarJWT } = require("../helpers/jwt");
 const bcrypt = require("bcryptjs");
 const Usuario = require("../models/usuario");
+const usuario = require("../models/usuario");
 
 const test = (req=request, res=response)=>{
     res.status(200).json({
@@ -11,12 +12,20 @@ const test = (req=request, res=response)=>{
 }
 
 const getUser = async(req=request, res=response)=>{
-    const usuarios = await Usuario.find({},"name email role google"); //{} (especificamos el filtro), 'campos separados por espacio'
-    res.status(200).json({
-        ok  : true,
-        usuarios,
-        userSolic:req.uid
-    });
+    const {skipUser, limitUser} = req.query;
+    try {
+        const usuarios = await Usuario.find({},"name email role").skip(Number(skipUser)||0).limit(Number(limitUser)||0);
+        res.status(200).json({
+            ok:true,
+            usuarios
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok:false,
+            msg:"Por favor contáctese con el administrador"
+        });
+    }
 }
 
 const newUser = async(req=request, res=response)=>{
@@ -127,6 +136,7 @@ const deleteUser = async(req=request, res=response)=>{
     }
 }
 
+
 module.exports = {
     test,
     getUser,
@@ -134,6 +144,11 @@ module.exports = {
     updateData,
     deleteUser
 };
+
+
+
+
+
 
 // Nota:
 // Advertencia de obsolescencia: Mongoose: `findOneAndUpdate ()` y `findOneAndDelete ()` sin la opción `useFindAndModify` 

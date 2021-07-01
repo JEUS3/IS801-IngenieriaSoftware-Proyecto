@@ -5,13 +5,17 @@
 const { Router } = require("express");
 const { check } = require("express-validator");
 
-const { test, getUser, newUser, updateData, deleteUser } = require("../controllers/usuarios");
+const { test, getUser, newUser, updateData, deleteUser, filterUse } = require("../controllers/usuarios");
 const { validarCampos } = require("../middlewares/validar-campos");
 const { validarJWT } = require("../middlewares/validar-jwt");
 const router = Router();
 
 router.get("/test", test);
-router.get("/", validarJWT, getUser);
+
+//TODO
+//Poner middleware de validaJWT
+router.get("/", getUser);
+
 router.post("/",
             [
                 check("name", "El nombre es obligatorio.").not().isEmpty(),
@@ -21,6 +25,7 @@ router.post("/",
                 validarCampos
             ],
             newUser);
+
 router.put("/:id",
             [
                 validarJWT,
