@@ -13,7 +13,16 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
 
   }
+  
+  elOffset(seccionId:string){
+    let el:HTMLElement|null = document.getElementById(seccionId);
+    let rel:any = el?.getBoundingClientRect();
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    return rel.top + scrollTop
+  }
+
   scrollingSmooth(seccionId:string){
-    document.getElementById(seccionId)?.scrollIntoView({behavior:"smooth"});
+    //document.getElementById(seccionId)?.scrollIntoView({behavior:"smooth"});
+    scrollTo(0, this.elOffset(seccionId)-35);
   }
 }

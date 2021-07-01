@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingComponent } from './landing-page/landing/landing.component';
 import { Page404Component } from './shared/page404/page404.component';
+import { ValidarTokenGuard } from './guards/validar-token.guard';
 
 const routes: Routes = [
   { path: "landing-page" , component: LandingComponent},
@@ -11,8 +12,9 @@ const routes: Routes = [
   },
   {
     path:"home-page",
-    loadChildren: () => import("./home-page/home-page.module").then( module => module.HomePageModule)
-
+    loadChildren: () => import("./home-page/home-page.module").then( module => module.HomePageModule),
+    canActivate: [ ValidarTokenGuard ],
+    canLoad: [ ValidarTokenGuard ]
   },
   { path: "", redirectTo: "landing-page", pathMatch: "full"},
   { path: "**", component: Page404Component}

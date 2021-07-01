@@ -38,4 +38,5 @@ router.put("/:id",
 
 router.delete("/:id", validarJWT, deleteUser);
 
+
 module.exports = router;
