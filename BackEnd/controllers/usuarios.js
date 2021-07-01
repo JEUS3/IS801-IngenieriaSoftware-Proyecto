@@ -12,6 +12,7 @@ const test = (req=request, res=response)=>{
 }
 
 const getUser = async(req=request, res=response)=>{
+    //Obtener todos los usuarios
     const {skipUser, limitUser} = req.query;
     try {
         const usuarios = await Usuario.find({},"name email role").skip(Number(skipUser)||0).limit(Number(limitUser)||0);
