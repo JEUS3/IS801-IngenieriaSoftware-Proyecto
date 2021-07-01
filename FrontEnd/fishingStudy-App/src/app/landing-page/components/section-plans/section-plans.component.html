@@ -1,109 +1,30 @@
-<div class="m-5">
+<div class="mx-5 py-4">
     <div class="row pt-2" [ngsReveal]="{reset:true,origin:'left', distance:'80px', delay:100, duration:1000}">
         <h1 class="mb-0">Planes de pago</h1>
         <h1 class="mb-0">Bastante accesibles</h1>
         <svg height="10" width="300">
-      <line x1="0" y1="0" x2="150" y2="0" style="stroke:#3f51b5;stroke-width:8" />
-    </svg>
-        <p>Nos adaptamos a las necesidades de su organización y su presupuesto</p>
+        <line x1="0" y1="0" x2="150" y2="0" style="stroke:#3f51b5;stroke-width:8" />
+      </svg>
+        <p>Nos adaptamos a las necesidades de su organizacion y su presupuesto</p>
     </div>
     <div class="row pt-2 pb-2" [ngsRevealSet]="{ reset:true, delay:100}" [ngsInterval]="200" [ngsSelector]="'.example-card'">
-        <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <div *ngFor="let plan of plans" class="col-12 col-md-6 col-lg-4 mb-4">
             <mat-card class="example-card">
                 <mat-card-header>
                     <div mat-card-avatar class="example-header-image"></div>
-                    <mat-card-title>Plan Básico</mat-card-title>
+                    <mat-card-title>{{ plan.typePlan }}</mat-card-title>
                     <mat-card-subtitle>Lo que necesitas</mat-card-subtitle>
                 </mat-card-header>
                 <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-                <h3>Mensual</h3>
-                <h1> 100$</h1>
+                <h3>{{ plan.period }}</h3>
+                <h1> {{ plan.cost | currency: 'USD' }}</h1>
                 <mat-card-content>
                     <p>
-                        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting.
+                        {{ plan.description}}
                     </p>
                     <ul>
-                        <li class="mt-1" style="list-style: none;">
-                            <img class="me-2" style="width: 15px;" src="../../../../assets/landingPage/funciones/checked.png" alt=""> Modulo estadístico
-                        </li>
-                        <li class="mt-1" style="list-style: none;">
-                            <img class="me-2" style="width: 15px;" src="../../../../assets/landingPage/funciones/checked.png" alt=""> Modulo de mapeo
-                        </li>
-                        <li class="mt-1" style="list-style: none;">
-                            <img class="me-2" style="width: 15px;" src="../../../../assets/landingPage/funciones/checked.png" alt=""> Modulo gestión de información
-                        </li>
-                        <li class="mt-1" style="list-style: none;">
-                            <img class="me-2" style="width: 15px;" src="../../../../assets/landingPage/funciones/checked.png" alt=""> Usuarios ilimitados
-                        </li>
-                    </ul>
-                </mat-card-content>
-                <mat-card-actions>
-                    <button mat-button>LIKE</button>
-                    <button mat-button>SHARE</button>
-                </mat-card-actions>
-            </mat-card>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 mb-4">
-            <mat-card class="example-card" style="background-color: rgba(85, 108, 242, 0.11);">
-                <mat-card-header>
-                    <div mat-card-avatar class="example-header-image"></div>
-                    <mat-card-title>Plan Premuim</mat-card-title>
-                    <mat-card-subtitle>Todo a tu disposición</mat-card-subtitle>
-                </mat-card-header>
-                <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-                <h3>Mensual</h3>
-                <h1> 150$</h1>
-                <mat-card-content>
-                    <p>
-                        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting.
-                    </p>
-                    <ul>
-                        <li class="mt-1" style="list-style: none;">
-                            <img class="me-2" style="width: 15px;" src="../../../../assets/landingPage/funciones/checked.png" alt=""> Modulo estadístico
-                        </li>
-                        <li class="mt-1" style="list-style: none;">
-                            <img class="me-2" style="width: 15px;" src="../../../../assets/landingPage/funciones/checked.png" alt=""> Modulo de mapeo
-                        </li>
-                        <li class="mt-1" style="list-style: none;">
-                            <img class="me-2" style="width: 15px;" src="../../../../assets/landingPage/funciones/checked.png" alt=""> Modulo gestión de información
-                        </li>
-                        <li class="mt-1" style="list-style: none;">
-                            <img class="me-2" style="width: 15px;" src="../../../../assets/landingPage/funciones/checked.png" alt=""> Usuarios ilimitados
-                        </li>
-                    </ul>
-                </mat-card-content>
-                <mat-card-actions>
-                    <button mat-button>LIKE</button>
-                    <button mat-button>SHARE</button>
-                </mat-card-actions>
-            </mat-card>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 mb-4">
-            <mat-card class="example-card">
-                <mat-card-header>
-                    <div mat-card-avatar class="example-header-image"></div>
-                    <mat-card-title>Plan Personalizado</mat-card-title>
-                    <mat-card-subtitle>Nos adaptamos a tus necesidades</mat-card-subtitle>
-                </mat-card-header>
-                <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-                <mat-card-content>
-                    <h3>Mensual</h3>
-                    <h1>Contáctenos</h1>
-                    <p>
-                        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting.
-                    </p>
-                    <ul>
-                        <li class="mt-1" style="list-style: none;">
-                            <img class="me-2" style="width: 15px;" src="../../../../assets/landingPage/funciones/checked.png" alt=""> Modulo estadístico
-                        </li>
-                        <li class="mt-1" style="list-style: none;">
-                            <img class="me-2" style="width: 15px;" src="../../../../assets/landingPage/funciones/checked.png" alt=""> Modulo de mapeo
-                        </li>
-                        <li class="mt-1" style="list-style: none;">
-                            <img class="me-2" style="width: 15px;" src="../../../../assets/landingPage/funciones/checked.png" alt=""> Modulo gestión de información
-                        </li>
-                        <li class="mt-1" style="list-style: none;">
-                            <img class="me-2" style="width: 15px;" src="../../../../assets/landingPage/funciones/checked.png" alt=""> Usuarios ilimitados
+                        <li class="mt-1" style="list-style: none;" *ngFor="let feature of plan.features">
+                            <img class="me-2 img" src="../../../../assets/landingPage/funciones/checked.png" alt=""> {{feature}}
                         </li>
                     </ul>
                 </mat-card-content>

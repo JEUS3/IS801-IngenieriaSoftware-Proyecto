@@ -1,12 +1,19 @@
-.header{
+.header {
     width: 100%;
     height: 100vh;
-    background: #0F2027;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027), url("../../../../assets/landingPage/img-pescador.jpg");  
+    background: #0F2027;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027), url("../../../../assets/landingPage/img-pescador.jpg");
     background: linear-gradient(to right, #2c53641e, #203a432f, #0f20276c), url("../../../../assets/landingPage/img-pescador.jpg");
     /* background-attachment: fixed; */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     clip-path: polygon(0 0, 100% 0%, 100% 93%, 0% 100%);
+}
+
+h1,
+h6 {
+    color: #ffff;
+    text-align: center;
 }
