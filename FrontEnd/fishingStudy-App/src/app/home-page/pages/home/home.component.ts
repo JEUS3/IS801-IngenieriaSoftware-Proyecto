@@ -14,6 +14,31 @@ export class HomeComponent implements OnInit {
     {name: "Gestion de usuarios", url:"setting"},
     {name: "Cerrar sesion", url:"/auth/login"},
   ];
+
+  statisticsSetting:OptionSetting[] = [
+    {name: "Estadistica", url:"statistics"}
+  ];
+
+  mapsSetting:OptionSetting[] = [
+    {name: "Mapas", url:"map"}
+  ];
+
+  surveySetting:OptionSetting[] = [
+    {name: "Crear Encuesta", url:"survey"}
+  ];
+
+  calendarySetting:OptionSetting[] = [
+    {name: "Ver Calendario", url:"calendary"}
+  ];
+
+  warningSetting:OptionSetting[] = [
+    {name: "Ver Alertas", url:"early-warning"}
+  ];
+
+  configurationSetting:OptionSetting[] = [
+    {name: "Cambiar configuracion", url:"configuration"}
+  ];
+  
   constructor() { }
 
   ngOnInit(): void {

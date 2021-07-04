@@ -10,6 +10,11 @@ import { ChartComponent } from './pages/chart/chart.component';
 import { OpeningComponent } from './pages/opening/opening.component';
 import { MaterialModule } from '../material/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ConfigurationComponent } from './pages/configuration/configuration.component';
+import { EarlyWarningComponent } from './pages/early-warning/early-warning.component';
+import { SurveyComponent } from './pages/survey/survey.component';
+import { CalendaryComponent } from './pages/calendary/calendary.component';
+import { StatisticsComponent } from './pages/statistics/statistics.component';
 
 
 @NgModule({
@@ -18,7 +23,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     SettingComponent,
     MapComponent,
     ChartComponent,
-    OpeningComponent
+    OpeningComponent,
+    ConfigurationComponent,
+    EarlyWarningComponent,
+    SurveyComponent,
+    CalendaryComponent,
+    StatisticsComponent
   ],
   imports: [
     CommonModule,

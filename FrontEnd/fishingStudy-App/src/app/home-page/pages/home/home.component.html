@@ -61,8 +61,8 @@
                         </mat-panel-title>
                     </mat-expansion-panel-header>
                     <mat-selection-list #shoes [multiple]="false">
-                        <mat-list-option>
-
+                        <mat-list-option *ngFor="let option of statisticsSetting" [routerLink]="option.url" [value]="option.name" (click)="snav.close()">
+                            {{option.name}}
                         </mat-list-option>
                     </mat-selection-list>
                 </mat-expansion-panel>
@@ -74,8 +74,8 @@
                         </mat-panel-title>
                     </mat-expansion-panel-header>
                     <mat-selection-list #shoes [multiple]="false">
-                        <mat-list-option>
-
+                        <mat-list-option *ngFor="let option of mapsSetting" [routerLink]="option.url" [value]="option.name" (click)="snav.close()">
+                            {{option.name}}
                         </mat-list-option>
                     </mat-selection-list>
                 </mat-expansion-panel>
@@ -87,8 +87,8 @@
                         </mat-panel-title>
                     </mat-expansion-panel-header>
                     <mat-selection-list #shoes [multiple]="false">
-                        <mat-list-option>
-
+                        <mat-list-option *ngFor="let option of surveySetting" [routerLink]="option.url" [value]="option.name" (click)="snav.close()">
+                            {{option.name}}
                         </mat-list-option>
                     </mat-selection-list>
                 </mat-expansion-panel>
@@ -100,13 +100,40 @@
                         </mat-panel-title>
                     </mat-expansion-panel-header>
                     <mat-selection-list #shoes [multiple]="false">
-                        <mat-list-option>
-
+                        <mat-list-option *ngFor="let option of calendarySetting" [routerLink]="option.url" [value]="option.name" (click)="snav.close()">
+                            {{option.name}}
                         </mat-list-option>
                     </mat-selection-list>
                 </mat-expansion-panel>
 
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <img class="img" src="../../../assets/sidebar/alerta_temprana.png" alt=""> Alerta Temprana
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <mat-selection-list #shoes [multiple]="false">
+                        <mat-list-option *ngFor="let option of warningSetting" [routerLink]="option.url" [value]="option.name" (click)="snav.close()">
+                            {{option.name}}
+                        </mat-list-option>
+                    </mat-selection-list>
+                </mat-expansion-panel>
 
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <img class="img" src="../../../assets/sidebar/ajustes.png" alt=""> Ajustes
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    
+                    <mat-selection-list #shoes [multiple]="false">
+                        <mat-list-option *ngFor="let option of configurationSetting" [routerLink]="option.url" [value]="option.name" (click)="snav.close()">
+                            {{option.name}}
+                        </mat-list-option>
+                    </mat-selection-list>
+                </mat-expansion-panel>
+               
+ 
             </mat-accordion>
 
         </div>
