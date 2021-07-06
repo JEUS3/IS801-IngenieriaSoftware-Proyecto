@@ -39,5 +39,9 @@ export class LoginComponent implements OnInit {
         }
       });
   }
+  
+  prueba(){
+    console.log("ey")
+  }
 
 }
