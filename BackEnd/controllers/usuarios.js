@@ -11,7 +11,7 @@ const test = (req = request, res = response) => {
     });
 };
 
-const getUser = async(req=request, res=response)=>{
+const getUsers = async(req=request, res=response)=>{
     //TASK-29.
     const {skipUser, limitUser} = req.query;
     try {
@@ -140,7 +140,7 @@ const deleteUser = async(req = request, res = response) => {
 
 module.exports = {
     test,
-    getUser,
+    getUsers,
     newUser: newUser,
     updateData,
     deleteUser

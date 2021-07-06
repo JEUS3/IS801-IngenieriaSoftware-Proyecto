@@ -3,7 +3,7 @@
 */
 const { Router } = require("express");
 const { check } = require("express-validator");
-const { login, revalidarToken } = require("../controllers/login");
+const { login, revalidarToken, forgotPassword, newPassword } = require("../controllers/login");
 const { validarCampos } = require("../middlewares/validar-campos");
 const { validarJWT } = require("../middlewares/validar-jwt");
 
@@ -15,5 +15,14 @@ router.post("/", [
         validarCampos
     ],
     login);
+
+router.get("/forgot-password", forgotPassword);
+router.put("/new-password/:token",[
+            check("newPassword", "La contraseña es un campo requerido.").notEmpty()
+            ],
+            validarCampos,
+            validarJWT,
+            newPassword);
+    
 
 module.exports = router;
