@@ -30,3 +30,10 @@ mat-label {
     cursor: pointer;
     text-decoration: underline;
 }
+
+.form {
+    height: 420px;
+    width: 320px;
+    background-color: rgba(65, 132, 177, 0.42);
+    border-radius: 10px;
+}

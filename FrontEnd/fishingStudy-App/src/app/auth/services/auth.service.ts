@@ -79,6 +79,21 @@ export class AuthService {
       );
 
   }
+
+  forgotPassword(email:string):Observable<boolean> {
+    const url = `${ this._baseUrl }/login/forgot-password`;
+    const headers = new HttpHeaders()
+      .append('email',email)
+
+    return this.http.get<AuthResponse>( url, { headers } )
+      .pipe(
+        map( resp => {
+          return resp.ok;
+        }),
+        catchError (err => of(false))
+      );
+
+  }
   
 
 }

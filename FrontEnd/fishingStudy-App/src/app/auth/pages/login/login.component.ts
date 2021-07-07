@@ -41,6 +41,32 @@ export class LoginComponent implements OnInit {
   }
   
   forgotPassword(){
-
+   
+    const {email} = this.miFormulario.value
+    if(!this.validateEmail(email) || email == ""){
+        Swal.fire({background:'#575B65',title:'<p style="color:#fff"> El formato del correo no es valido<p>'});
+        
+    }else{
+      this.authService.forgotPassword(email)
+        .subscribe(ok =>{
+          if(ok === true){
+            Swal.fire({
+              background:'#575B65',
+              title:'<p style="color:#fff">Instrucciones enviadas</p>',
+              html : `<p  style="text-align:left; color:#fff">Hemos enviado instrucciones para cambiar tu contraseña a ${email}.<br> Revise la bandeja de entrada y la carpeta de spam.</p>`
+            })
+          }else{
+            // console.log(ok)
+            Swal.fire("Error",`${ok}`,"error");
+          }
+      });
+    }
   }
+
+  validateEmail(email:string) {
+    email = email.trim();
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
+  
 }
