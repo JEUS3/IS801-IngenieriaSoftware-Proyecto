@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 export interface OptionSetting{
   name:string,
@@ -18,9 +19,12 @@ export class HomeComponent implements OnInit {
     {name: "Gestion de usuarios", url:"setting"},
     {name: "Cerrar sesion", url:"/auth/login"},
   ];
-  constructor() { }
+  constructor( private router:Router) { }
 
   ngOnInit(): void {
   }
 
+  navagate(url:string){
+    this.router.navigateByUrl(`home-page/${url}`)
+  }
 }

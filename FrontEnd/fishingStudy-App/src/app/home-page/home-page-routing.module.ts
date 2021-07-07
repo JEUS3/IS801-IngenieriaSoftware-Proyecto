@@ -4,8 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { OpeningComponent } from './pages/opening/opening.component';
-import { ChartComponent } from './pages/chart/chart.component';
-import { MapComponent } from './pages/map/map.component';
+
 import { SettingComponent } from './pages/setting/setting.component';
 
 const routes: Routes = [
@@ -15,9 +14,31 @@ const routes: Routes = [
     children:
       [
         { path:"opening", component:OpeningComponent },
-        { path:"chart",   component:ChartComponent },
-        { path:"map",     component:MapComponent },
         { path:"setting", component:SettingComponent },
+        {
+          path:"calendar",
+          loadChildren: () => import("./pages/calendar/calendar.module").then( module => module.CalendarModule)
+        },
+        {
+          path:"chart",
+          loadChildren: () => import("./pages/chart/chart.module").then( module => module.ChartModule)
+        },
+        {
+          path:"climate",
+          loadChildren: () => import("./pages/climate/climate.module").then( module => module.ClimateModule)
+        },
+        {
+          path:"document",
+          loadChildren: () => import("./pages/document/document.module").then( module => module.DocumentModule)
+        },
+        {
+          path:"map",
+          loadChildren: () => import("./pages/map/map.module").then( module => module.MapModule)
+        },
+        {
+          path:"survey",
+          loadChildren: () => import("./pages/survey/survey.module").then( module => module.SurveyModule)
+        },
         { path:"", redirectTo:"opening", pathMatch:"full"}
       ] 
   },
