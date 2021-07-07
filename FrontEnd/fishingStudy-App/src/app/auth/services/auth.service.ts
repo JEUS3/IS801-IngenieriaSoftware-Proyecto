@@ -5,8 +5,8 @@ import { catchError, map, tap } from "rxjs/operators";
 import { of, Observable } from 'rxjs';
 
 import { Usuario, LoginResponse } from '../../home-page/interfaces/interfaces';
-import { FormGroup } from '@angular/forms';
-import { AuthResponse } from '../interfaces/interfaces';
+import { FormGroup, FormControl, ValidationErrors } from '@angular/forms';
+import { AuthResponse, ResetPasswordRequest, ResetPasswordResponse } from '../interfaces/interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,9 @@ export class AuthService {
 
   private _baseUrl:string = environment.baseUrl;
   private _user!:Usuario;
+
+  /* Mínimo ocho caracteres, al menos una letra mayúscula, una minúscula y un número. */
+  public passwordRegex: RegExp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
 
   get user(){
     return {...this._user}
@@ -79,5 +82,34 @@ export class AuthService {
       );
 
   }
+  /* Verifica si las contraseñas de auth/reset son iguales */
+  samePassword(AC: FormControl):ValidationErrors | null{
+    return new Promise (resolve=>{
+      const newPassword: string = AC.parent?.get('newPassword')?.value;
+      const confirmPassword: string = AC.parent?.get('confirmPassword')?.value;
+      if (newPassword === confirmPassword) {
+        return resolve(null);
+      } else {
+        return resolve({ samePassword: true });
+      }
+    })
+  }
 
+  /* Realiza la petición de cambio de contraseña al backend */
+  resetPassword(payload: ResetPasswordRequest): Observable<boolean | string>{
+    
+    const url = `${this._baseUrl }/login/new-password/${ payload.token }`;
+    const body = { "newPassword":payload.newPassword } ;
+
+    return this.http.put<ResetPasswordResponse>(url, body)
+      .pipe(
+        map(resp => {
+          return resp.ok
+        }),
+        catchError((err) => {
+          // console.log("CATCH",err.error)
+          return of(err.error?.msg || "Error en la petición")
+        })
+      );
+  }
 }

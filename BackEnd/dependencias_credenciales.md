@@ -46,6 +46,11 @@ npm i bcryptjs
 npm i jsonwebtoken
 ```
 
+* **nodemailer**: Paquete para emails
+```
+npm i nodemailer
+```
+
 
 mongo credenciales
 ---

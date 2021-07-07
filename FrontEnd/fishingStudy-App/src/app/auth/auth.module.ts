@@ -7,11 +7,13 @@ import { MaterialModule } from '../material/material/material.module';
 import { NgsRevealModule } from 'ngx-scrollreveal';
 import { LoginComponent } from './pages/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    ResetPasswordComponent
   ],
   imports: [
     CommonModule,
