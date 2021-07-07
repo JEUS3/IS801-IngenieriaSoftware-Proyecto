@@ -21,7 +21,3 @@ export interface Data {
     uid:      string;
 }
 
-export interface OptionSetting{
-    name:string,
-    url :string
-}

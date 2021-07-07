@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 
-import { HomeComponent } from './pages/home/home.component';
+import { HomeComponent } from './home/home.component';
 import { OpeningComponent } from './pages/opening/opening.component';
 import { ChartComponent } from './pages/chart/chart.component';
 import { MapComponent } from './pages/map/map.component';
