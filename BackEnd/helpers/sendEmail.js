@@ -1,19 +1,19 @@
 const nodemailer = require("nodemailer");
 
-const sendEmail = (username, email, token,)=>{
+const sendEmail = (username, email, token, ) => {
     // console.log("Email: ",email," ","Token: :",token);
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
-        port: 465,     //587,
+        port: 465, //587,
         secure: true, // true for 465, false for other ports
         auth: {
-        user: "serfishsw@gmail.com", // generated ethereal user
-        pass: "vchbvzkobnvfhbsl", // generated ethereal password
+            user: "serfishsw@gmail.com", // generated ethereal user
+            pass: "vchbvzkobnvfhbsl", // generated ethereal password
         },
     });
 
-      // send mail with defined transport object
+    // send mail with defined transport object
     return transporter.sendMail({
         from: '"SerFish" <serfishsw@gmail.com>', // sender address
         to: `${email}`, // list of receivers
@@ -39,7 +39,7 @@ const sendEmail = (username, email, token,)=>{
                                     font-size: 16px;
                                     margin: 0px 0px 15px;
                                     cursor: pointer;">
-                        <a href="http://localhost:4200/auth/login" style="color: white; text-decoration: none;">Restablecer contraseña</a>
+                        <a href="http://localhost:4200/auth/reset-password/${token}" style="color: white; text-decoration: none;">Restablecer contraseña</a>
                     </button>
                 </div>
             </div>

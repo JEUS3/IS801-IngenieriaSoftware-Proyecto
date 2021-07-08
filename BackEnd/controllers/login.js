@@ -64,34 +64,34 @@ const revalidarToken = async(req = request, res = response) => {
     });
 };
 
-const forgotPassword = async( req = request, res = response )=>{
+const forgotPassword = async(req = request, res = response) => {
     //Email enviado?
-    const {email} = req.headers;
-    if(!email){
+    const { email } = req.headers;
+    if (!email) {
         return res.status(400).json({
-            ok  :false,
-            msg :"El email no se ha recibido correctamente."
+            ok: false,
+            msg: "El email no se ha recibido correctamente."
         });
     }
 
     try {
-    //Verificar que el email este en nuesta BD.
-        const user = await Usuario.findOne({email});
-        if(!user){
+        //Verificar que el email este en nuesta BD.
+        const user = await Usuario.findOne({ email });
+        if (!user) {
             return res.status(400).json({
-                ok  :false,
-                msg :"No existe ningun usuario registrado con este correo electronico."
+                ok: false,
+                msg: "No existe ningun usuario registrado con este correo electronico."
             });
         }
-    
-    //Si el correo se envio y existe en la BD generamos un JWT.
-        const token = await generarJWT(user._id);
-    
-    //Luego enviamos un correo electronico al usuario que solicita el cambio de contraseña.
-        let info = await sendEmail( user.name, email, token );
+
+        //Si el correo se envio y existe en la BD generamos un JWT.
+        const token = await generarJWT(user._id, '600s');
+
+        //Luego enviamos un correo electronico al usuario que solicita el cambio de contraseña.
+        let info = await sendEmail(user.name, email, token);
         console.log("Salido de send")
         res.status(200).json({
-            ok  :true,
+            ok: true,
             token
         });
     } catch (error) {
@@ -103,21 +103,21 @@ const forgotPassword = async( req = request, res = response )=>{
     }
 };
 
-const newPassword = async( req = request, res = response )=>{
+const newPassword = async(req = request, res = response) => {
     const uid = req.uid;
-    let {newPassword} = req.body;
+    let { newPassword } = req.body;
     try {
         //Encriptar contraseña
         const salt = bcrypt.genSaltSync(); //data generada de manera aletoria.
         newPassword = bcrypt.hashSync(newPassword, salt);
-        
+
         //Buscar y actualizar usuario
-        const user =  await Usuario.findByIdAndUpdate(uid,{password:newPassword});
+        const user = await Usuario.findByIdAndUpdate(uid, { password: newPassword });
         res.status(200).json({
-            ok  :true,
-            msg :"La contraseña se a actualizado correctamente."
-        
-        });  
+            ok: true,
+            msg: "La contraseña se a actualizado correctamente."
+
+        });
     } catch (error) {
         console.log(error);
         res.status(500).json({

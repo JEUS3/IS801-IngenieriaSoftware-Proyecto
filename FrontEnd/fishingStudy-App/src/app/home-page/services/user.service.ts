@@ -30,7 +30,8 @@ export class UserService {
   constructor(private http:HttpClient) { }
 
   getUsers():Observable<Usuario[]>{
-    const url = `${this._baseUrl}/usuarios`
+    const url = `${this._baseUrl}/usuarios`;
+    this.user = [];
     return  this.http.get<UserResponse>(url)
               .pipe(
                 map( res => {
