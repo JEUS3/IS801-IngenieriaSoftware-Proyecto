@@ -12,12 +12,12 @@
           </button>
         </mat-toolbar>
         <!-- <h4 class="m-2">Opciones</h4> -->
-        <hr class="mx-2">
+        <hr class="mx-3">
         <div class="mx-3">
-            <button style="width: 100%; height: 48px; text-align: left;" class="my-2" mat-button (click)="navagate('opening')"><img class="img" src="../../../assets/sidebar/homepage.png" alt="">Inicio</button>
-            <button style="width: 100%; height: 48px; text-align: left;" class="mb-2" mat-button (click)="navagate('climate')"><img class="img" src="../../../assets/sidebar/dom.png" alt="">Clima</button>
-            <button style="width: 100%; height: 48px; text-align: left;" class="mb-2" mat-button (click)="navagate('calendar')"><img class="img" src="../../../assets/sidebar/calendario.png" alt="">Calendario</button>
-            <button style="width: 100%; height: 48px; text-align: left;" class="mb-2" mat-button (click)="navagate('document')"><img class="img" src="../../../assets/sidebar/agricultura.png" alt="">Documentos</button>
+            <button style="width: 100%; height: 48px; text-align: left;" class="my-2" mat-button (click)="navagate('opening')"><img class = "img ms-2" src="../../../assets/sidebar/homepage.png" alt="">Inicio</button>
+            <button style="width: 100%; height: 48px; text-align: left;" class="mb-2" mat-button (click)="navagate('climate')"><img class = "img ms-2" src="../../../assets/sidebar/dom.png" alt="">Clima</button>
+            <button style="width: 100%; height: 48px; text-align: left;" class="mb-2" mat-button (click)="navagate('calendar')"><img class ="img ms-2" src="../../../assets/sidebar/calendario.png" alt="">Calendario</button>
+            <button style="width: 100%; height: 48px; text-align: left;" class="mb-2" mat-button (click)="navagate('document')"><img class ="img ms-2" src="../../../assets/sidebar/agricultura.png" alt="">Documentos</button>
             <mat-expansion-panel class="mb-2" (click)="navagate('map')">
                 <mat-expansion-panel-header>
                     <mat-panel-title>
@@ -83,5 +83,4 @@
             <router-outlet></router-outlet>
         </div>
     </mat-sidenav-content>
-
 </mat-sidenav-container>
