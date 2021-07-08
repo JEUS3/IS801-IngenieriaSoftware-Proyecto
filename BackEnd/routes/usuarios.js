@@ -16,25 +16,23 @@ router.get("/test", test);
 //Poner middleware de validaJWT
 router.get("/", getUsers);
 
-router.post("/",
-            [
-                check("name", "El nombre es obligatorio.").not().isEmpty(),
-                check("password", "La contrasaña es obligatorio.").not().isEmpty(),
-                check("email", "El email no es valido.").isEmail(),
-                check("role", "El rol es obligatorio.").not().isEmpty(),
-                validarCampos
-            ],
-            newUser);
+router.post("/", [
+        check("name", "El nombre es obligatorio.").not().isEmpty(),
+        check("password", "La contraseña es obligatorio.").not().isEmpty(),
+        check("email", "El email no es valido.").isEmail(),
+        check("role", "El rol es obligatorio.").not().isEmpty(),
+        validarCampos
+    ],
+    newUser);
 
-router.put("/:id",
-            [
-                validarJWT,
-                check("name", "El nombre es obligatorio.").not().isEmpty(),
-                check("email", "El email no es valido.").isEmail(),
-                check("role", "El role es obligatorio.").not().isEmpty(),
-                validarCampos
-            ],
-            updateData);
+router.put("/:id", [
+        validarJWT,
+        check("name", "El nombre es obligatorio.").not().isEmpty(),
+        check("email", "El email no es valido.").isEmail(),
+        check("role", "El role es obligatorio.").not().isEmpty(),
+        validarCampos
+    ],
+    updateData);
 
 router.delete("/:id", validarJWT, deleteUser);
 

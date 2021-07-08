@@ -13,7 +13,7 @@ const login = async(req = request, res = response) => {
         if (!userExist) {
             return res.status(404).json({
                 ok: false,
-                msg: "El email es invalido."
+                msg: "El email es inválido."
             });
         }
         // Validar password
@@ -21,7 +21,7 @@ const login = async(req = request, res = response) => {
         if (!passMatch) {
             return res.status(400).json({
                 ok: false,
-                msg: "La contraseña es incorrepta."
+                msg: "La contraseña es incorrecta."
             });
         }
         // Generacion de JWT
@@ -80,7 +80,7 @@ const forgotPassword = async(req = request, res = response) => {
         if (!user) {
             return res.status(400).json({
                 ok: false,
-                msg: "No existe ningun usuario registrado con este correo electronico."
+                msg: "No existe ningún usuario registrado con este correo electrónico."
             });
         }
 

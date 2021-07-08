@@ -11,20 +11,20 @@ const test = (req = request, res = response) => {
     });
 };
 
-const getUsers = async(req=request, res=response)=>{
+const getUsers = async(req = request, res = response) => {
     //TASK-29.
-    const {skipUser, limitUser} = req.query;
+    const { skipUser, limitUser } = req.query;
     try {
-        const usuarios = await Usuario.find({},"name email role").skip(Number(skipUser)||0).limit(Number(limitUser)||0);
+        const usuarios = await Usuario.find({}, "name email role").skip(Number(skipUser) || 0).limit(Number(limitUser) || 0);
         res.status(200).json({
-            ok:true,
+            ok: true,
             usuarios
         });
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            ok:false,
-            msg:"Por favor contáctese con el administrador"
+            ok: false,
+            msg: "Por favor contáctese con el administrador"
         });
     }
 }
@@ -77,7 +77,7 @@ const updateData = async(req = request, res = response) => {
         if (!userRegister) {
             return res.status(404).json({
                 ok: false,
-                msg: "El id del usurio no se encuentra en la BD."
+                msg: "El id del usuario no se encuentra en la BD."
             });
         }
 
