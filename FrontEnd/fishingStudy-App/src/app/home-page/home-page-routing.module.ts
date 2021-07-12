@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SettingGuard } from '../guards/validar-rol.guard';
 
 
 import { HomeComponent } from './home/home.component';
@@ -14,7 +15,11 @@ const routes: Routes = [
     children:
       [
         { path:"opening", component:OpeningComponent },
-        { path:"setting", component:SettingComponent },
+        { path:"setting", component:SettingComponent,
+          canActivate: [SettingGuard],
+          canLoad: [SettingGuard]
+          
+        },
         {
           path:"calendar",
           loadChildren: () => import("./pages/calendar/calendar.module").then( module => module.CalendarModule)
