@@ -16,11 +16,11 @@ export interface OptionSetting{
 export class HomeComponent implements OnInit {
   @ViewChild('snav') snav!: MatSidenav;
   panelOpenState = false;
-  typesOfShoes: string[] = ['Perfil y cuenta', 'Gestion de usuarios', 'Loafers', 'Moccasins', 'Cerrar sesion'];
+  typesOfShoes: string[] = ['Perfil y cuenta', 'Gestión de usuarios', 'Loafers', 'Moccasins', 'Cerrar sesión'];
   optionSetting:OptionSetting[] = [
     {name: "Editar Cuenta", url:"opening"},
-    {name: "Gestion de usuarios", url:"setting"},
-    {name: "Cerrar sesion", url:"/auth/login"},
+    {name: "Gestión de usuarios", url:"setting"},
+    {name: "Cerrar sesión", url:"/auth/login"},
   ];
   constructor( private router:Router,
     private  authService: AuthService) { }
@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
     this.router.navigateByUrl(`home-page/${url}`)
   }
 
-  test(elementUrl: string){
+  action(elementUrl: string){
     if( elementUrl === this.optionSetting[2].url){
       this.authService.logOut();
     }else{

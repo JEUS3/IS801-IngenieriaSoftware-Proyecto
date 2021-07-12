@@ -64,7 +64,7 @@
                         </mat-panel-title>
                     </mat-expansion-panel-header>
                     <mat-selection-list [multiple]="false">
-                        <mat-list-option *ngFor="let option of optionSetting" [routerLink]="option.url" [value]="option.name" (click)="test(option.url)">
+                        <mat-list-option *ngFor="let option of optionSetting" [routerLink]="option.url" [value]="option.name" (click)="action(option.url)">
                             {{option.name}}
                         </mat-list-option>
                     </mat-selection-list>
